@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インフォグラフィック：大腸がんの新たな真実 - 腸内細菌との関係</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #BFD7EA;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-arrow::after {
+            content: '▼';
+            font-size: 2rem;
+            color: #087E8B;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-[#0B3954]">
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-bold text-[#0B3954] mb-4">大腸がんの新たな犯人、<br class="md:hidden">実はあなたの腸内に？</h1>
+            <p class="text-lg md:text-xl text-[#087E8B]">最新の国際共同研究が解き明かした、日本人と腸内細菌の驚くべき関係</p>
+        </header>
+
+        <main class="space-y-8">
+            
+            <section id="status" class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#087E8B] text-center mb-6">増え続ける大腸がん：日本の現状</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                    <div>
+                        <p class="text-6xl md:text-7xl font-bold text-[#FF5A5F]">14.7<span class="text-3xl">万人</span></p>
+                        <p class="mt-2 text-lg">2020年に新たに大腸がんと診断された人の数。すべてのがんの中で最多でした。</p>
+                    </div>
+                    <div>
+                        <p class="text-6xl md:text-7xl font-bold text-[#FF5A5F]">5.3<span class="text-3xl">万人</span></p>
+                        <p class="mt-2 text-lg">2023年に大腸がんで亡くなった人の数。がんによる死亡原因の上位を占めます。</p>
+                    </div>
+                </div>
+                <div class="mt-8 pt-6 border-t border-[#BFD7EA]">
+                    <h3 class="font-bold text-xl text-center mb-4">主な発症リスク</h3>
+                    <div class="flex justify-center flex-wrap gap-4 text-base">
+                        <span class="bg-[#BFD7EA] text-[#0B3954] font-semibold px-4 py-2 rounded-full">喫煙 🚬</span>
+                        <span class="bg-[#BFD7EA] text-[#0B3954] font-semibold px-4 py-2 rounded-full">過度な飲酒 🍺</span>
+                        <span class="bg-[#BFD7EA] text-[#0B3954] font-semibold px-4 py-2 rounded-full">欧米型の食生活 🍔</span>
+                        <span class="bg-[#BFD7EA] text-[#0B3954] font-semibold px-4 py-2 rounded-full">肥満 🏃</span>
+                    </div>
+                    <p class="text-center mt-4">しかし、これらだけでは説明できない、新たな原因が発見されました。</p>
+                </div>
+            </section>
+            
+            <section id="mechanism" class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#087E8B] text-center mb-6">発見：特定の腸内細菌が作る"毒素"の仕業</h2>
+                 <p class="max-w-3xl mx-auto text-center mb-8">世界11カ国が参加した国際共同研究で、一部の腸内細菌が作る「コリバクチン毒素」が、大腸の細胞の設計図（DNA）を傷つけ、がんを引き起こす固有の「傷跡（ゲノム変異）」を残していることが判明しました。このメカニズムは以下の通りです。</p>
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="w-full max-w-md text-center bg-white p-4 rounded-lg border-2 border-[#087E8B] shadow-md">
+                        <p class="text-2xl font-bold">① 一部の腸内細菌</p>
+                        <p>大腸菌などが腸内に生息</p>
+                    </div>
+                    <div class="flow-arrow"></div>
+                    <div class="w-full max-w-md text-center bg-white p-4 rounded-lg border-2 border-[#087E8B] shadow-md">
+                        <p class="text-2xl font-bold">②「コリバクチン毒素」を分泌</p>
+                        <p>特殊な毒素を細胞の外へ放出</p>
+                    </div>
+                     <div class="flow-arrow"></div>
+                    <div class="w-full max-w-md text-center bg-white p-4 rounded-lg border-2 border-[#087E8B] shadow-md">
+                        <p class="text-2xl font-bold">③ DNAを直接攻撃</p>
+                        <p>大腸の細胞のDNA二重鎖を切断し、傷をつける</p>
+                    </div>
+                     <div class="flow-arrow"></div>
+                    <div class="w-full max-w-md text-center bg-[#FF5A5F] text-white p-4 rounded-lg border-2 border-[#C81D25] shadow-lg">
+                        <p class="text-2xl font-bold">④ がん化につながる遺伝子変異</p>
+                        <p>修復エラーが蓄積し、細胞ががん化</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="data" class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#087E8B] text-center mb-8">データで見る衝撃の事実</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <div class="flex flex-col items-center">
+                        <h3 class="font-bold text-xl text-center mb-4">日本人患者の半数に毒素の痕跡</h3>
+                        <p class="text-center mb-4">解析した日本人大腸がん患者のうち、実に半数からコリバクチン毒素による特有の遺伝子変異が見つかりました。</p>
+                        <div class="chart-container h-64 md:h-80">
+                            <canvas id="japanesePatientChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <h3 class="font-bold text-xl text-center mb-4">他国の2.6倍という高い割合</h3>
+                         <p class="text-center mb-4">この変異を持つ患者の割合は、他国平均（19.2%）と比較して、日本（50%）が突出して高いことが明らかになりました。</p>
+                        <div class="chart-container h-64 md:h-80">
+                            <canvas id="countryComparisonChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2 flex flex-col items-center mt-8">
+                        <h3 class="font-bold text-xl text-center mb-4">若年層の発症に強く関連</h3>
+                        <p class="text-center mb-4 max-w-2xl">さらに、この毒素による変異は50歳未満の若年層患者で特に多く、70歳以上の高齢患者と比較して3.3倍も高い頻度で確認されました。若年性大腸がんの増加に深く関わっている可能性が示唆されます。</p>
+                        <div class="chart-container h-72 md:h-80 w-full max-w-2xl">
+                            <canvas id="ageComparisonChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="future" class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#087E8B] text-center mb-6">未来への希望：新しい予防法への道筋</h2>
+                <div class="max-w-3xl mx-auto space-y-4 text-lg">
+                    <p>今回の発見は、大腸がん予防の新たな可能性を示しています。現在はがん細胞から毒素を出す菌が見つからなくても、過去に毒素にさらされたことが「ヒット・アンド・ラン」的にがん化の引き金になったと考えられます。</p>
+                    <p class="font-bold text-[#0B3954]">将来的には、コリバクチン毒素の働きを抑える薬や、この毒素を産生する特定の腸内細菌だけを選択的に除去する技術（ファージ療法など）を開発することで、特にリスクの高い人々において、大腸がんの発症を未然に防げるようになるかもしれません。</p>
+                    <p>この研究は、日本人の若年層に増加する大腸がんの全貌解明に向けた大きな一歩であり、個別化予防の実現に繋がることが期待されます。</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-6 border-t border-[#087E8B]">
+            <p class="text-sm text-[#0B3954]">出典：国立がん研究センター 2024年5月21日発表</p>
+            <p class="text-sm text-[#0B3954]">原著論文：Nature (2024年4月23日付)</p>
+        </footer>
+    </div>
+
+<script>
+    const chartTooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+
+    const wrapLabel = (label, maxLength = 16) => {
+        if (typeof label !== 'string' || label.length <= maxLength) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + word).length > maxLength) {
+                lines.push(currentLine.trim());
+                currentLine = '';
+            }
+            currentLine += word + ' ';
+        });
+        lines.push(currentLine.trim());
+        return lines.filter(line => line.length > 0);
+    };
+    
+    const commonChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#0B3954',
+                    font: {
+                        size: 14
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: chartTooltipTitleCallback
+                },
+                backgroundColor: 'rgba(11, 57, 84, 0.9)',
+                titleFont: { size: 16 },
+                bodyFont: { size: 14 },
+                padding: 12,
+                cornerRadius: 4,
+            }
+        },
+        scales: {
+            y: {
+                ticks: { color: '#0B3954', font: { size: 12 } },
+                grid: { color: '#BFD7EA' }
+            },
+            x: {
+                ticks: { color: '#0B3954', font: { size: 12 } },
+                grid: { display: false }
+            }
+        }
+    };
+
+    const japanesePatientCtx = document.getElementById('japanesePatientChart').getContext('2d');
+    new Chart(japanesePatientCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['毒素の痕跡あり', '毒素の痕跡なし'],
+            datasets: [{
+                label: '日本人患者の割合',
+                data: [50, 50],
+                backgroundColor: ['#FF5A5F', '#087E8B'],
+                borderColor: '#FFFFFF',
+                borderWidth: 4,
+                hoverOffset: 8
+            }]
+        },
+        options: {
+            ...commonChartOptions,
+            cutout: '60%',
+            plugins: {
+                ...commonChartOptions.plugins,
+                legend: { ...commonChartOptions.plugins.legend, position: 'bottom' }
+            },
+            scales: { y: { display: false }, x: { display: false } }
+        }
+    });
+
+    const countryComparisonCtx = document.getElementById('countryComparisonChart').getContext('2d');
+    new Chart(countryComparisonCtx, {
+        type: 'bar',
+        data: {
+            labels: ['日本', '他国平均'],
+            datasets: [{
+                label: '毒素による変異を持つ患者の割合 (%)',
+                data: [50, 19.2],
+                backgroundColor: ['#FF5A5F', '#087E8B'],
+                borderRadius: 4,
+                barPercentage: 0.6
+            }]
+        },
+        options: {
+            ...commonChartOptions,
+            plugins: { ...commonChartOptions.plugins, legend: { display: false } },
+            scales: { ...commonChartOptions.scales, y: { ...commonChartOptions.scales.y, max: 60, title: { display: true, text: '割合 (%)', color: '#0B3954' } } }
+        }
+    });
+    
+    const ageComparisonCtx = document.getElementById('ageComparisonChart').getContext('2d');
+    new Chart(ageComparisonCtx, {
+        type: 'bar',
+        data: {
+            labels: ['50歳未満の若年層', '70歳以上の高齢層'],
+            datasets: [{
+                label: '毒素による変異を持つ患者の相対頻度',
+                data: [3.3, 1],
+                backgroundColor: ['#FF5A5F', '#087E8B'],
+                borderRadius: 4,
+                barPercentage: 0.5
+            }]
+        },
+        options: {
+            ...commonChartOptions,
+            indexAxis: 'y',
+            plugins: {
+                ...commonChartOptions.plugins,
+                legend: { display: false },
+                tooltip: {
+                     callbacks: {
+                        ...commonChartOptions.plugins.tooltip.callbacks,
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.x !== null) {
+                                label += context.parsed.x + '倍';
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                 y: { ticks: { color: '#0B3954', font: { size: 14 } }, grid: { display: false } },
+                 x: { ticks: { callback: value => value + '倍', color: '#0B3954', font: { size: 12 } }, grid: { color: '#BFD7EA' }, title: {display: true, text: '高齢層を1とした場合の相対頻度', color: '#0B3954'} }
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
